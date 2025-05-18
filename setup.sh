@@ -19,7 +19,17 @@ sudo apt install -y \
 	neovim \
 	tmux \
 	htop \
-	neofetch 
+	neofetch \
+       	npm	
+
+echo "Downloading tools"
+
+cd ~/Downloads/
+
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
+
+sudo dpkg -i chrome.deb
+
 
 echo "Cleaning up"
 sudo apt autoremove -y
