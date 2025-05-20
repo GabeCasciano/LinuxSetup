@@ -89,3 +89,7 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 echo "[] Cleaning up"
 sudo apt autoremove -y
 
+echo "[] Github"
+git config --global user.name "GabeCasciano"
+git config --global user.email "gabecasciano@gmail.com"
+
