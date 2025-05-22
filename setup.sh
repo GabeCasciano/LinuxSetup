@@ -23,7 +23,10 @@ sudo apt install -y \
 	npm \
   zsh \
   software-properties-common \
-  curl 
+  curl \
+  feh \
+  fzf \
+  i3
 
 echo "[] Downloading Chrome"
 
@@ -32,21 +35,6 @@ cd ~/Downloads/
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb
 
 sudo dpkg -i chrome.deb
-
-echo "[] Downloading regolith"
-
-wget -qO - https://archive.regolith-desktop.com/regolith.key | \
-gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null
-
-echo deb "[arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] \
-https://archive.regolith-desktop.com/ubuntu/stable noble v3.2" | \
-sudo tee /etc/apt/sources.list.d/regolith.list
-
-sudo apt update
-
-echo "[] APT installing Regolith"
-
-sudo apt install -y rofi regolith-desktop regolith-session-flashback regolith-look-lascaille 
 
 echo "[] Setting up ZSH"
 chsh -s "$(which zsh)"
