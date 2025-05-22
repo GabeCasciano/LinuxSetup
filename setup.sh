@@ -74,8 +74,21 @@ rm -rf ~/.config/nvim/
 echo "[] NvChad setup is about to begin"
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
+echo "[] Installing Syncthing"
+
 echo "[] Cleaning up"
 sudo apt autoremove -y
+sudo mkdir -p /etc/apt/keyrings
+sudo curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+
+echo "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+
+sudo apt-get update
+sudo apt-get install syncthing
+
+sudo systemctl --user enable syncthing.service
+sudo systemctl --user start syncthing.service
+
 
 echo "[] Github"
 git config --global user.name "GabeCasciano"
